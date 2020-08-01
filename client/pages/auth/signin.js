@@ -7,7 +7,7 @@ export default () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [doRequest, errors] = useRequest({
-    url: "/api/users/signup",
+    url: "/api/users/signin",
     method: "post",
     body: {
       email,
@@ -35,7 +35,7 @@ export default () => {
 
   return (
     <form onSubmit={submitForm}>
-      <h1> Signup</h1>
+      <h1> Sign in</h1>
       <div className='form-group'>
         <label>Email Address</label>
         <input
@@ -57,7 +57,7 @@ export default () => {
       {errors}
 
       <button className='btn btn-primary' type='submit'>
-        Sign Up
+        Sign In
       </button>
     </form>
   );
