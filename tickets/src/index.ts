@@ -7,7 +7,7 @@ const start = async () => {
     throw new Error("JWT_KET must be defined");
   }
   if (!process.env.MONGO_URI) {
-    throw new Error("Mongo uri must be definde");
+    throw new Error("Mongo uri must be defined");
   }
   try {
     await mongoose.connect(process.env.MONGO_URI, {
