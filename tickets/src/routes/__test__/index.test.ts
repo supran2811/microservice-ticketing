@@ -3,7 +3,7 @@ import { app } from '../../app';
 
 const createTicket = () => {
   return request(app).post('/api/tickets')
-  .set('Cookie': global.signin())
+  .set('Cookie', global.signin())
   .send({
     title: 'ddsf',
     price: 20
