@@ -1,23 +1,23 @@
-name: deploy-auth
+name: deploy-payments
 on:
   push:
     branches:
       - master
     paths:
-      - 'auth/**'
+      - 'payments/**'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd auth && docker build -t supran2811/auth .
+      - run: cd payments && docker build -t supran2811/payments .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push supran2811/auth
+      - run: docker push supran2811/payments
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save microservice-ticketing
-      - run: kubectl rollout restart deployment auth-depl
+      - run: kubectl rollout restart deployment payments-depl
