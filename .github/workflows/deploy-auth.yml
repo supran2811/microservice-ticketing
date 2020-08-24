@@ -18,7 +18,7 @@ jobs:
        - run: docker push supran2811/auth
        - uses: digitalocean/action-doctl@v2
          with:
-           token:${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
        - run: doctl kubernetes cluster kubeconfig save microservice-ticketing
        - run: kubectl rollout restart deployment auth-depl  
      
