@@ -13,7 +13,7 @@ export default ({ req }) => {
     //   headers: req.headers,
     // });
     return axios.create({
-      baseURL: 'http://www.ticketing.supsengu.de',
+      baseURL: 'http://ticketing.supsengu.de',
       headers: req.headers,
     });
   } else {
